@@ -1,7 +1,7 @@
 import { students } from "../../model/studentsModel.js";
-
-
-
+import bcrypt from 'bcrypt'
+import { config } from "dotenv";
+config()
  const registrationController = async(req,res)=>{
     const {username,password,whichClass} = req.body;
     try {
@@ -18,9 +18,11 @@ import { students } from "../../model/studentsModel.js";
                 message : "user allready exist"
             })
         }
+        const salt = Number(process.env.SALT_ROUND)
+        const hashedPassword =await bcrypt.hash(password,salt)
         const data = await new students({
             username : username,
-            password : password,
+            password : hashedPassword,
             whichClass : whichClass
         });
         data.save();
