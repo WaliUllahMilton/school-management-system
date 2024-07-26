@@ -9,6 +9,6 @@ const adminstratorSchema = mongoose.Schema({
         type :String,
         required : true
     }
-})
+},{timestamps : true})
 
 export const adminstrator = mongoose.model("adminstrators",adminstratorSchema);

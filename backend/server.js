@@ -1,7 +1,7 @@
 import express, { json, urlencoded } from 'express';
 import {config} from 'dotenv';
 import { DB } from './config/configDB.js';
-import { teachers } from './model/teachersModel.js';
+import studentRegistration from './controller/students/registrationController.js';
 
 
 const app = express();
@@ -18,26 +18,4 @@ app.listen(process.env.PORT,()=>{
 app.get("/",(rer,res)=>{
     res.send("hello");
 })
-app.post("/signup",async(req,res)=>{
-    const {userName,password} = req.body;
-    console.log(userName)
-    try {
-        if(!userName || !password){
-            res.status(400).json({
-                success :false
-            })
-        }
-        const data = await new teachers({
-            userName : userName,
-            password : password
-        })
-        data.save()
-        if(data){
-            res.status(201).json({
-                success : true
-            })
-        }
-    } catch (error) {
-        console.log(error)
-    }
-})
+app.post("/student-signup", studentRegistration)

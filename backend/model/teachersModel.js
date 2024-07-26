@@ -23,6 +23,6 @@ const teacherSchema = mongoose.Schema({
         type : String,
         required : true
     }
-})
+},{timestamps : true})
 
 export const teachers = mongoose.model("teachers",teacherSchema)

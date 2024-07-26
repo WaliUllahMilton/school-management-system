@@ -5,7 +5,7 @@ const studentSchema = mongoose.Schema({
         type : String,
         required : true
     },
-    class : {
+    whichClass : {
         type : String,
         required :true
     },
@@ -19,6 +19,6 @@ const studentSchema = mongoose.Schema({
     result : {
         type : Array
     }
-})
+},{timestamps :true})
 
 export const students = mongoose.model("students",studentSchema);
