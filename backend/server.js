@@ -3,7 +3,7 @@ import {config} from 'dotenv';
 import { DB } from './config/configDB.js';
 import studentRegistration from './controller/students/registrationController.js';
 import studentLogin from './controller/students/loginController.js';
-
+import studentFortgotPassword from './controller/students/forgotPasswordController.js'
 
 const app = express();
 DB();
@@ -22,3 +22,4 @@ app.get("/",(rer,res)=>{
 })
 app.post("/student-signup", studentRegistration)
 app.post("/student-login", studentLogin)
+app.post("/student-forgot-password", studentFortgotPassword)

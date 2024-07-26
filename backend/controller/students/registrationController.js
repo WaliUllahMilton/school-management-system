@@ -1,7 +1,7 @@
 import { students } from "../../model/studentsModel.js";
 import bcrypt from 'bcrypt'
 import { config } from "dotenv";
-config()
+config();
  const registrationController = async(req,res)=>{
     const {username,email,password,whichClass,secretQuestion} = req.body;
     try {
