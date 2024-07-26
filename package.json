@@ -15,5 +15,10 @@
     "url": "https://github.com/WaliUllahMilton/school-management-system/issues"
   },
   "homepage": "https://github.com/WaliUllahMilton/school-management-system#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "package": "^1.0.1",
+    "packages": "^0.0.8"
+  }
 }
