@@ -5,9 +5,17 @@ const studentSchema = mongoose.Schema({
         type : String,
         required : true
     },
+    email: {
+        type : String,
+        required : true
+    },
     whichClass : {
         type : String,
         required :true
+    },
+    secretKey :{
+        type : String,
+        required : true
     },
     password : {
         type : String,
