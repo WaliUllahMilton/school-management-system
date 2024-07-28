@@ -7,6 +7,9 @@ import adminstratorForgotPassword from './controller/adminstrators/forgotPasswor
 import studentRegistration from './controller/students/registrationController.js';
 import studentLogin from './controller/students/loginController.js';
 import studentFortgotPassword from './controller/students/forgotPasswordController.js'
+import teacherRegistration from './controller/teachers/registrationController.js'
+import teacherLogin from './controller/teachers/loginController.js'
+import teacherForgotPassword from './controller/teachers/forgotPasswordController.js'
 
 const app = express();
 DB();
@@ -29,8 +32,13 @@ app.post("/adminstrator-login", adminstratorLogin)
 app.post("/adminstrator-forgot-password", adminstratorForgotPassword)
 
 
-
+//route for student
 app.post("/student-signup", studentRegistration)
 app.post("/student-login", studentLogin)
 app.post("/student-forgot-password", studentFortgotPassword)
-// app.post("/student-forgot-password", studentFortgotPassword)
+
+
+//route for teacher
+app.post("/teacher-signup", teacherRegistration)
+app.post("/teacher-login", teacherLogin)
+app.post("/teacher-forgot-password", teacherForgotPassword)
