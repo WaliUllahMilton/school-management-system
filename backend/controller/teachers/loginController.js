@@ -1,5 +1,6 @@
-import { adminstrators } from "../../model/adminstratorSchema.js";
+
 import bcrypt from 'bcrypt';
+import { teachers } from "../../model/teachersModel.js";
 
 const loginController = async(req,res)=>{
     const {username,password} = req.body;
@@ -10,7 +11,7 @@ const loginController = async(req,res)=>{
                 message : "username and password required"
             });
         }
-        const user = await adminstrators.findOne({username : username})
+        const user = await teachers.findOne({username : username})
         if(!user){
             return res.status(400).json({
                 success :false,
