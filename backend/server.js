@@ -13,6 +13,7 @@ import teacherForgotPassword from './controller/teachers/forgotPasswordControlle
 import { studentAttendance, studentAttendanceUbdate } from './controller/student attendances/studentAttendanceController.js';
 import { getAllStudent, getSingleStudent } from './controller/students/getStudentController.js';
 import { isAdminMiddleware } from './middleware/adminMiddleware.js';
+import { getAllTeacher, getSingleTeacher } from './controller/teachers/getTeacherMiddleware.js';
 
 const app = express();
 DB();
@@ -47,6 +48,8 @@ app.get("/get-single-student/:id",isAdminMiddleware, getSingleStudent)
 app.post("/teacher-signup", teacherRegistration)
 app.post("/teacher-login", teacherLogin)
 app.post("/teacher-forgot-password", teacherForgotPassword)
+app.get("/get-all-teachers", getAllTeacher)
+app.post("/get-single-teacher/:id",isAdminMiddleware, getSingleTeacher)
 
 app.post("/studen-attandance",studentAttendance)
-app.post("/studen-attandance/update",studentAttendanceUbdate)
+app.post("/studen-attandance-update",studentAttendanceUbdate)

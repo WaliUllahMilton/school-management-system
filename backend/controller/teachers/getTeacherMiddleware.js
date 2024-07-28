@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-import { teachers } from "../../model/teachersModel"
+import { teachers } from "../../model/teachersModel.js"
 
 export const getAllTeacher = async(req,res)=>{
     try {
