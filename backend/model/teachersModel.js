@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { model, Types } from "mongoose";
 
 const teacherSchema = mongoose.Schema({
     name : {

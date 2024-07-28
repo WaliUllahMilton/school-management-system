@@ -49,7 +49,8 @@ app.post("/teacher-signup", teacherRegistration)
 app.post("/teacher-login", teacherLogin)
 app.post("/teacher-forgot-password", teacherForgotPassword)
 app.get("/get-all-teachers", getAllTeacher)
-app.post("/get-single-teacher/:id",isAdminMiddleware, getSingleTeacher)
+app.get("/get-single-teacher/:id",isAdminMiddleware, getSingleTeacher)
+
 
 app.post("/studen-attandance",studentAttendance)
 app.post("/studen-attandance-update",studentAttendanceUbdate)
