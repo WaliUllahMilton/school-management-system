@@ -14,7 +14,7 @@ const loginController = async(req,res)=>{
         if(!user){
             return res.status(400).json({
                 success :false,
-                message : "please sign up first"
+                message : "wrong email address"
             });
         }
         const comparePassword =await bcrypt.compare(password,user.password)
