@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt'
 import { config } from "dotenv";
-import { adminstrator } from "../../model/adminstratorSchema.js";
+import { adminstrators } from "../../model/adminstratorSchema.js";
 config();
  const registrationController = async(req,res)=>{
     const {username,email,password} = req.body;
@@ -11,7 +11,7 @@ config();
                     message : "please fill all the field"
                     });
         }
-        const checkExistingUser = await adminstrator.findOne({email : email})
+        const checkExistingUser = await adminstrators.findOne({email : email})
         if(checkExistingUser){
             return res.status(401).json({
                 success : false,
@@ -26,17 +26,18 @@ config();
                 message : "invalid email"
             })
         }
-        const data = await new adminstrator({
+        const user = await new adminstrators({
             username : username,
             email :email,
             password : hashedPassword
         })
-        data.save();
-        if(data){
+        user.save();
+        if(user){
+            user.password = undefined ;
             return res.status(201).json({
                 success : true,
                 message : "successfully created",
-                data : data
+                data : user
             })
         }
     } catch (error) {

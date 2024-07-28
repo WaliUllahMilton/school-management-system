@@ -15,4 +15,4 @@ const adminstratorSchema = mongoose.Schema({
     }
 },{timestamps : true})
 
-export const adminstrator = mongoose.model("adminstrators",adminstratorSchema);
+export const adminstrators = mongoose.model("adminstrators",adminstratorSchema);
