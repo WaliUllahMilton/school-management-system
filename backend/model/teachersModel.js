@@ -12,12 +12,9 @@ const teacherSchema = mongoose.Schema({
     sallery : {
         type : Number,
     },
-    classList : {
+    role : {
         type : String,
-        // required : true,
-    },
-    attendance : {
-        type : Date,
+        default : "teacher"
     },
     secretKey : {
         type : String,
