@@ -8,7 +8,7 @@ config();
 const forgotPasswordController = async(req,res)=>{
     const {email,secretQuestion,password} = req.body;
     try {
-        if(!email || !secretQuestion){
+        if(!email || !secretQuestion || !password){
             return res.status(400).json({
                 success : false,
                 message : "please fill all the field"
@@ -31,7 +31,7 @@ const forgotPasswordController = async(req,res)=>{
         if(existingUser.secretKey === secretQuestion){
             const salt = Number(process.env.SALT_ROUND)
             const hashedPassword = await bcrypt.hash(password,salt);
-            const user = await students.findByIdAndUpdate({_id : existingUser._id},{password : hashedPassword})
+            const user = await students.findByIdAndUpdate({_id : existingUser._id},{password : hashedPassword});
             user.password = undefined;
             return res.status(200).json({
                 success : true,

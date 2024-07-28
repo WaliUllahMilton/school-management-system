@@ -32,7 +32,7 @@ config();
             password : hashedPassword,
             secretKey :secretQuestion
         })
-        user.save();
+        await user.save();
         if(user){
             user.password = undefined ;
             return res.status(201).json({

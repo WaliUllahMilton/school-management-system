@@ -8,7 +8,7 @@ config();
 const forgotPasswordController = async(req,res)=>{
     const {email,secretQuestion,password} = req.body;
     try {
-        if(!email || !secretQuestion){
+        if(!email || !secretQuestion || !password){
             return res.status(400).json({
                 success : false,
                 message : "please fill all the field"

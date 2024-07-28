@@ -2,22 +2,22 @@ import { students } from "../../model/studentsModel.js";
 import bcrypt from 'bcrypt';
 
 const loginController = async(req,res)=>{
-    const {username,password} = req.body;
+    const {email,password} = req.body;
     try {
-        if(!username || ! password){
+        if(!email || ! password){
             return res.status(400).json({
                 success : false,
                 message : "username and password required"
             });
         }
-        const checkExistingUser = await students.findOne({username : username})
+        const checkExistingUser = await students.findOne({email : email})
         if(!checkExistingUser){
             return res.status(400).json({
                 success :false,
                 message : "please sign up first"
             });
         }
-        const comparePassword =await bcrypt.compare(password,checkExistingUser.password)
+        const comparePassword =await bcrypt.compare(password,checkExistingUser.password);
         if(!comparePassword){
             return res.status(400).json({
                 success :false,

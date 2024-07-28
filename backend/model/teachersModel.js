@@ -1,7 +1,7 @@
 import mongoose, { model, Types } from "mongoose";
 
 const teacherSchema = mongoose.Schema({
-    userName : {
+    username : {
         type : String,
         required : true
     },
