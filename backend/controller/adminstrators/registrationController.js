@@ -3,9 +3,9 @@ import { config } from "dotenv";
 import { adminstrators } from "../../model/adminstratorSchema.js";
 config();
  const registrationController = async(req,res)=>{
-    const {username,email,password} = req.body;
+    const {username,email,password,secretQuestion} = req.body;
     try {
-        if(!username || !email || !password ){
+        if(!username || !email || !password || !secretQuestion){
             return  res.status(400).json({
                     success : false,
                     message : "please fill all the field"
@@ -29,7 +29,8 @@ config();
         const user = await new adminstrators({
             username : username,
             email :email,
-            password : hashedPassword
+            password : hashedPassword,
+            secretKey : secretQuestion
         })
         user.save();
         if(user){

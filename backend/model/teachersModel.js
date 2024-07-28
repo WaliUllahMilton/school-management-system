@@ -5,19 +5,23 @@ const teacherSchema = mongoose.Schema({
         type : String,
         required : true
     },
+    email : {
+        type : String,
+        required : true
+    },
     sallery : {
         type : Number,
     },
-    students : {
-        type : mongoose.ObjectId,
-        ref : "students"
-    },
     classList : {
-        type : Number,
+        type : String,
         // required : true,
     },
     attendance : {
         type : Date,
+    },
+    secretKey : {
+        type : String,
+        required : true
     },
     password : {
         type : String,
