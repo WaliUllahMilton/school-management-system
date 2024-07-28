@@ -11,7 +11,7 @@ import teacherRegistration from './controller/teachers/registrationController.js
 import teacherLogin from './controller/teachers/loginController.js'
 import teacherForgotPassword from './controller/teachers/forgotPasswordController.js'
 import { studentAttendance, studentAttendanceUbdate } from './controller/student attendances/studentAttendanceController.js';
-import { getAllStudent } from './controller/students/getAllStudent.js';
+import { getAllStudent, getSingleStudent } from './controller/students/getStudentController.js';
 
 const app = express();
 DB();
@@ -39,6 +39,7 @@ app.post("/student-signup", studentRegistration)
 app.post("/student-login", studentLogin)
 app.post("/student-forgot-password", studentFortgotPassword)
 app.get("/get-all-students", getAllStudent)
+app.get("/get-single-student/:id", getSingleStudent)
 
 
 //route for teacher
