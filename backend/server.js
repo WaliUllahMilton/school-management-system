@@ -10,6 +10,7 @@ import studentFortgotPassword from './controller/students/forgotPasswordControll
 import teacherRegistration from './controller/teachers/registrationController.js'
 import teacherLogin from './controller/teachers/loginController.js'
 import teacherForgotPassword from './controller/teachers/forgotPasswordController.js'
+import { studentAttendance, studentAttendanceUbdate } from './controller/student attendances/studentAttendanceController.js';
 
 const app = express();
 DB();
@@ -42,3 +43,6 @@ app.post("/student-forgot-password", studentFortgotPassword)
 app.post("/teacher-signup", teacherRegistration)
 app.post("/teacher-login", teacherLogin)
 app.post("/teacher-forgot-password", teacherForgotPassword)
+
+app.post("/studen-attandance",studentAttendance)
+app.post("/studen-attandance/update",studentAttendanceUbdate)
