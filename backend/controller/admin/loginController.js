@@ -1,4 +1,4 @@
-import { adminstrators } from "../../model/adminstratorSchema.js";
+import { admin } from "../../model/adminModel.js";
 import bcrypt from 'bcrypt';
 
 const loginController = async(req,res)=>{
@@ -10,7 +10,7 @@ const loginController = async(req,res)=>{
                 message : "username and password required"
             });
         }
-        const user = await adminstrators.findOne({email : email})
+        const user = await admin.findOne({email : email})
         if(!user){
             return res.status(400).json({
                 success :false,

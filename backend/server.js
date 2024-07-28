@@ -1,9 +1,9 @@
 import express, { json, urlencoded } from 'express';
 import {config} from 'dotenv';
 import { DB } from './config/configDB.js';
-import adminstratorRegistration from './controller/adminstrators/registrationController.js';
-import adminstratorLogin from './controller/adminstrators/loginController.js'
-import adminstratorForgotPassword from './controller/adminstrators/forgotPasswordController.js'
+import adminRegistration from './controller/admin/registrationController.js';
+import adminLogin from './controller/admin/loginController.js'
+import adminForgetPassword from './controller/admin/forgotPasswordController.js'
 import studentRegistration from './controller/students/registrationController.js';
 import studentLogin from './controller/students/loginController.js';
 import studentFortgotPassword from './controller/students/forgotPasswordController.js'
@@ -28,9 +28,9 @@ app.get("/",(rer,res)=>{
     res.send("hello");
 })
 // route for adminstrator 
-app.post("/adminstrator-signup", adminstratorRegistration)
-app.post("/adminstrator-login", adminstratorLogin)
-app.post("/adminstrator-forgot-password", adminstratorForgotPassword)
+app.post("/admin-signup", adminRegistration)
+app.post("/admin-login", adminLogin)
+app.post("/admin-forgot-password", adminForgetPassword)
 
 
 //route for student

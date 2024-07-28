@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt'
 import { config } from "dotenv";
-import { adminstrators } from "../../model/adminstratorSchema.js";
+import { admin } from '../../model/adminModel.js';
 config();
  const registrationController = async(req,res)=>{
     const {username,email,password,secretQuestion} = req.body;
@@ -11,11 +11,12 @@ config();
                     message : "please fill all the field"
                     });
         }
-        const checkExistingUser = await adminstrators.findOne({email : email})
-        if(checkExistingUser){
+        // console.log(typeof username);
+        const checkExistingUser = await admin.find({})
+        if(checkExistingUser && checkExistingUser.length !== 0 ){
             return res.status(401).json({
                 success : false,
-                message : "user allready exist"
+                message : "can not be more than one admin , if you forgot password then please recover it",
             })
         }
         const salt = Number(process.env.SALT_ROUND)
@@ -26,7 +27,7 @@ config();
                 message : "invalid email"
             })
         }
-        const user = await new adminstrators({
+        const user = new admin({
             username : username,
             email :email,
             password : hashedPassword,

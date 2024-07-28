@@ -1,7 +1,6 @@
 import { config } from "dotenv";
-import { students } from "../../model/studentsModel.js";
 import bcrypt from 'bcrypt'
-import { adminstrators } from "../../model/adminstratorSchema.js";
+import { admin } from "../../model/adminModel.js";
 
 config();
 
@@ -14,7 +13,7 @@ const forgotPasswordController = async(req,res)=>{
                 message : "please fill all the field"
             });
         }
-        const existingUser = await adminstrators.findOne({email:email})
+        const existingUser = await admin.findOne({email:email})
         if(!existingUser){
             return res.status(401).json({
                 success : false,
@@ -31,7 +30,7 @@ const forgotPasswordController = async(req,res)=>{
         if(existingUser.secretKey === secretQuestion){
             const salt = Number(process.env.SALT_ROUND)
             const hashedPassword = await bcrypt.hash(password,salt);
-            const user = await students.findByIdAndUpdate({_id : existingUser._id},{password : hashedPassword});
+            const user = await admin.findByIdAndUpdate({_id : existingUser._id},{password : hashedPassword});
             user.password = undefined;
             return res.status(200).json({
                 success : true,
