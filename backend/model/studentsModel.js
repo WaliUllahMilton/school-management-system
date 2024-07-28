@@ -3,11 +3,13 @@ import mongoose from "mongoose";
 const studentSchema = mongoose.Schema({
     username : {
         type : String,
-        required : true
+        required : true,
+        unque : true
     },
     email: {
         type : String,
-        required : true
+        required : true,
+        unique : true
     },
     whichClass : {
         type : String,
@@ -20,12 +22,6 @@ const studentSchema = mongoose.Schema({
     password : {
         type : String,
         required : true
-    },
-    attendance : {
-        type : String
-    },
-    result : {
-        type : Array
     }
 },{timestamps :true})
 

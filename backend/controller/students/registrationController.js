@@ -11,6 +11,12 @@ config();
                     message : "please fill all the field"
                     });
         }
+        if(!email.includes("@")){
+            return res.status(401).json({
+                success : false,
+                message : "invalid email"
+            })
+        }
         const checkExistingUser = await students.findOne({email : email})
         if(checkExistingUser){
             return res.status(401).json({
@@ -19,13 +25,7 @@ config();
             })
         }
         const salt = Number(process.env.SALT_ROUND)
-        const hashedPassword =await bcrypt.hash(password,salt)
-        if(!email.includes("@")){
-            return res.status(401).json({
-                success : false,
-                message : "invalid email"
-            })
-        }
+        const hashedPassword =await bcrypt.hash(password,salt);
         const user = await new students({
             username : username,
             email :email,
@@ -33,9 +33,10 @@ config();
             whichClass : whichClass,
             secretKey :secretQuestion
         });
-        user.save();
+        await user.save();
+        user.password = undefined
         if(user){
-            user.password = undefined ;
+            
             return res.status(201).json({
                 success : true,
                 message : "successfully created",
