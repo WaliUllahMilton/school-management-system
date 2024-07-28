@@ -1,9 +1,13 @@
 import mongoose, { mongo } from "mongoose";
 
 const adminstratorSchema = mongoose.Schema({
-    userName : {
+    username : {
         type : String,
         required : true
+    },
+    email : {
+        type : String,
+        required :true
     },
     password : {
         type :String,
