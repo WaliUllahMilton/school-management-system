@@ -12,6 +12,7 @@ import teacherLogin from './controller/teachers/loginController.js'
 import teacherForgotPassword from './controller/teachers/forgotPasswordController.js'
 import { studentAttendance, studentAttendanceUbdate } from './controller/student attendances/studentAttendanceController.js';
 import { getAllStudent, getSingleStudent } from './controller/students/getStudentController.js';
+import { isAdminMiddleware } from './middleware/adminMiddleware.js';
 
 const app = express();
 DB();
@@ -39,7 +40,7 @@ app.post("/student-signup", studentRegistration)
 app.post("/student-login", studentLogin)
 app.post("/student-forgot-password", studentFortgotPassword)
 app.get("/get-all-students", getAllStudent)
-app.get("/get-single-student/:id", getSingleStudent)
+app.get("/get-single-student/:id",isAdminMiddleware, getSingleStudent)
 
 
 //route for teacher
