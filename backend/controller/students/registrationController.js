@@ -26,19 +26,20 @@ config();
                 message : "invalid email"
             })
         }
-        const data = await new students({
+        const user = await new students({
             username : username,
             email :email,
             password : hashedPassword,
             whichClass : whichClass,
             secretKey :secretQuestion
         });
-        data.save();
-        if(data){
+        user.save();
+        if(user){
+            user.password = undefined ;
             return res.status(201).json({
                 success : true,
                 message : "successfully created",
-                data : data
+                data : user
             })
         }
     } catch (error) {
