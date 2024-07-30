@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
-
- const NavLink = ({children}) => {
+ const NavLink = ({children,className}) => {
   return (
-    <ul className={`flex max-w-container gap-6  mx-auto`}>
+    <ul className={`${className} font-roboto flex max-w-container  justify-between`}>
       {children}
     </ul>
   )

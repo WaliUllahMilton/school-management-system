@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-
- const NavItem = ({innerText}) => {
+import { Link } from 'react-router-dom'
+ const NavItem = ({innerText,className,to}) => {
   return (
-    <li>
+    <Link className={`${className}`} to={to}>
       {innerText}
-    </li>
+    </Link>
   )
 }
 export default NavItem;
