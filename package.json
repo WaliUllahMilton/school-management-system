@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "concurrently \"cd backend && npm start\"  \"cd client && npm run dev\""
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,6 @@
   "homepage": "https://github.com/WaliUllahMilton/school-management-system#readme",
   "description": "",
   "dependencies": {
-    "bcrypt": "^5.1.1",
-    "package": "^1.0.1",
-    "packages": "^0.0.8"
+    "concurrently": "^8.2.2"
   }
 }

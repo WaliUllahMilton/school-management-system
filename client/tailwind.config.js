@@ -8,6 +8,9 @@ export default {
     extend: {
       spacing : {
         "container" : "1024px"
+      },
+      fontFamily : {
+        "roboto" : ["Roboto", "sans-serif"]
       }
     },
   },
