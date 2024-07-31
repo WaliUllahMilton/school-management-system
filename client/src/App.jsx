@@ -4,6 +4,7 @@ import { Contact } from "./pages/home/Contact"
 import { Layout } from "./component/Layout"
 import { AdminLogin } from "./pages/admin/AdminLogin"
 import { AdminSignup } from "./pages/admin/AdminSignup"
+import { Dashboard } from "./pages/admin/Dashboard"
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/admin" exact>
             <Route path="login" element={<AdminLogin/>}/>
             <Route path="signup" element={<AdminSignup/>}/>
+            <Route path="dashboard" element={<Dashboard/>}/>
           </Route>
         </Routes>
      

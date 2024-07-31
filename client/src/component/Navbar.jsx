@@ -16,7 +16,7 @@ export const Navbar = () => {
               <NavItem innerContent="Adminssion"/>
               <NavItem innerContent="Student"/>
               <NavItem innerContent="Teachers"/>
-              <NavItem innerContent="Events"/>
+              <NavItem to="/admin/login" innerContent="Admin"/>
               <NavItem innerContent="Gallery"/>
               <NavItem innerContent="About"/>
               <NavItem innerContent="Contact"/>

@@ -8,7 +8,8 @@ import {useDispatch, useSelector } from 'react-redux'
 import { SignUpApi } from '../../slices/admin/apiCall'
 import {toast} from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
-
+import NavLink from '../../component/NavLink'
+import NavItem from '../../component/NavItem'
 export const AdminSignup = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -60,6 +61,10 @@ useEffect(() => {
             <Input type="text" name="username" value={formData.username} onChange={(e)=>handleOnChange(e)} placeholder="Enter your username"/>
             <Input type="text" name="secretKey" value={formData.secretKey} onChange={(e)=>handleOnChange(e)}  placeholder="Enter a key for password recover"/>
             <Input type="text" name="password" value={formData.password} onChange={(e)=>handleOnChange(e)} placeholder="Enter password"/>
+            <NavLink>
+              <NavItem innerContent="login" to="/admin/login"/>
+              <NavItem innerContent="forgot password ?" to="/admin/forgot-password"/>
+            </NavLink>
             <Btn innerText="Sign Up" onClick={handleSubmit}/>
         </Form>
     </FormBody>

@@ -7,9 +7,13 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { signInApi } from '../../slices/admin/apiCall'
 import {toast} from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
+import NavItem from '../../component/NavItem'
+import NavLink from '../../component/NavLink'
 export const AdminLogin = () => {
   const data = useSelector((state)=>state.admins)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [formData,setFormData] = useState({
     email : "",
     password : ""
@@ -29,6 +33,7 @@ export const AdminLogin = () => {
 useEffect(()=>{
   if(data.success && data.success !== " "){
     toast.success(data.notification)
+    navigate("/admin/dashboard")
   }
   if(!data.success && data.success !== " "){
     toast.error(data.notification)
@@ -49,6 +54,10 @@ useEffect(()=>{
                value={formData.password}
                onChange={(e)=>handleOnChange(e)}
                placeholder="password"/>
+              <NavLink className="text-white text-base">
+                <NavItem to="/admin/signup" innerContent="create account"/>
+                <NavItem innerContent="forgot password ?"/>
+              </NavLink>
               <Btn innerText="Login" onClick={(e)=>handleSubmit(e)}/>
           </Form>
       </FormBody>

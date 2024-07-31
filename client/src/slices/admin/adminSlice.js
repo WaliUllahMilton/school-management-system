@@ -26,6 +26,11 @@ const adminSlice = createSlice({
             state.isLoading = false,
             state.isError = false,
             state.notification = action?.payload?.message
+            localStorage.setItem("admin",JSON.stringify({
+                id : action?.payload?.data?._id,
+                name : action?.payload?.data?.name,
+                email : action?.payload?.data?.email
+            }))
         }).addCase(SignUpApi.rejected,(state,action)=>{
             state.id = null,
             state.name = null,
@@ -42,7 +47,12 @@ const adminSlice = createSlice({
             state.success = action.payload?.success
             state.isLoading = false,
             state.isError = false,
-            state.notification = action?.payload?.message
+            state.notification = action?.payload?.message,
+            localStorage.setItem("admin",JSON.stringify({
+                id : action?.payload?.data?._id,
+                name : action?.payload?.data?.name,
+                email : action?.payload?.data?.email
+            }))
         }).addCase(signInApi.rejected,(state,action)=>{
             state.id = null,
             state.name = null,
