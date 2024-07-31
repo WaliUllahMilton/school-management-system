@@ -14,7 +14,7 @@ export const Navbar = () => {
             </div>
               <NavItem to="/" innerContent="Home"/>
               <NavItem innerContent="Adminssion"/>
-              <NavItem innerContent="Student"/>
+              <NavItem innerContent="Student" to="student/signup"/>
               <NavItem innerContent="Teachers"/>
               <NavItem to="/admin/login" innerContent="Admin"/>
               <NavItem innerContent="Gallery"/>

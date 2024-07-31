@@ -5,13 +5,13 @@ import { Outlet } from 'react-router-dom'
 
 export const StudentNavbar = () => {
   return (
-    <section>
+    <section >
         <nav className='bg-rose-400 py-3'>
         <div className='max-w-container mx-auto'>
         <NavLink className="">
             <NavItem to="result" innerContent="Result" className="text-white font-bold"/>
             <NavItem to="attendance" innerContent="attendance"/>
-            <NavItem to="routine" innerContent="routin"/>
+            <NavItem to="routin" innerContent="routin"/>
             <NavItem innerContent="log out"/>
         </NavLink>
     </div>

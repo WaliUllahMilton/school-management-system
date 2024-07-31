@@ -10,13 +10,17 @@ import {toast} from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import NavItem from '../../component/NavItem'
 import NavLink from '../../component/NavLink'
+import { CheckBox } from '../../component/CheckBox'
+import CoverImg from '../../assets/adminLogin.png'
+import Pic from '../../component/Image'
 export const AdminLogin = () => {
-  const data = useSelector((state)=>state.admins)
+  const data = useSelector((state)=>state.admin)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [formData,setFormData] = useState({
     email : "",
-    password : ""
+    password : "",
+    checkBox : false
   })
   const handleOnChange = (e)=>{
     const {name,value} = e.target
@@ -25,23 +29,32 @@ export const AdminLogin = () => {
       [name] : value
     }))
   }
+  const handleChecked = (e)=>{
+    const {name,checked} = e.target
+    setFormData((prev)=>({
+      ...prev,
+      [name] : checked
+    }))
+  }
   const handleSubmit = (e)=>{
     e.preventDefault();
     dispatch(signInApi(formData))
   }
-  console.log(data)
+  console.log(formData)
 useEffect(()=>{
-  if(data.success && data.success !== " "){
-    toast.success(data.notification)
+  if(data?.success && data?.success !== " "){
+    toast.success(data?.notification)
     navigate("/admin/dashboard")
   }
-  if(!data.success && data.success !== " "){
-    toast.error(data.notification)
+  if(!data?.success && data?.success !== " "){
+    toast.error(data?.notification)
   }
 },[data])
   return (
-    <section>
-      <FormBody headerText="Admin Login">
+    <section className='bg-gradient-to-t from-blue-400 to-teal-500 min-h-screen'>
+      <NavLink className="">
+        <div className='min-w-[40vw] '>
+        <FormBody headerText="Admin Login" title="wellcome back to your school admin ">
           <Form>
               <Input type="email"
                name="email"
@@ -54,13 +67,19 @@ useEffect(()=>{
                value={formData.password}
                onChange={(e)=>handleOnChange(e)}
                placeholder="password"/>
-              <NavLink className="text-white text-base">
+               <CheckBox value={formData.checkBox} name="checkBox" onChange={(e)=>handleChecked(e)}/>
+              <Btn innerText="Login" className="w-full" onClick={(e)=>handleSubmit(e)}/>
+              <NavLink className="text-black text-base">
                 <NavItem to="/admin/signup" innerContent="create account"/>
                 <NavItem innerContent="forgot password ?"/>
               </NavLink>
-              <Btn innerText="Login" onClick={(e)=>handleSubmit(e)}/>
           </Form>
       </FormBody>
+        </div>
+        <div className='min-w-[60vw] bg-gray-100'>
+            <Pic src={CoverImg}/>
+        </div>
+      </NavLink>
     </section>
   )
 }

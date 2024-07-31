@@ -21,6 +21,10 @@ export const AdminSignup = () => {
     secretKey : "",
     password : ""
   })
+  const toastSetting = {
+      pauseOnHover: false,
+        autoClose : 3000
+  }
   
   const handleOnChange = (e)=>{
     const {name,value} = e.target
@@ -35,20 +39,14 @@ const handleSubmit = (e)=>{
   dispatch(SignUpApi(formData))
 }
 useEffect(() => {
-  if (data.success !== undefined) {
-    if (data.success && data.success !== " ") {
+  if (data?.success !== undefined) {
+    if (data?.success && data?.success !== " ") {
       console.log(data);
-      toast.success(data.notification,{
-        pauseOnHover: false,
-        autoClose : 3000
-      });
+      toast.success(data?.notification,toastSetting);
       navigate("/")
     }
-    if(!data.success && data.success !== " "){
-      toast.error(data.notification,{
-        pauseOnHover: false,
-        autoClose : 3000
-      });
+    if(!data?.success && data?.success !== " "){
+      toast.error(data?.notification,toastSetting);
     }
   }
 }, [data,navigate]);
