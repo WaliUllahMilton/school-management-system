@@ -1,10 +1,15 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
- const NavItem = ({innerText,className,to}) => {
+ const NavItem = ({innerContent,className,to}) => {
   return (
-    <Link className={`${className}`} to={to}>
-      {innerText}
+    <Link className={`${className} capitalize`} to={to}>
+      {innerContent}
     </Link>
   )
+}
+NavItem.propTypes = {
+  className : PropTypes.string,
+  innerContent : PropTypes.node.isRequired,
+  to : PropTypes.string
 }
 export default NavItem;

@@ -3,9 +3,9 @@ import { config } from "dotenv";
 import { admin } from '../../model/adminModel.js';
 config();
  const registrationController = async(req,res)=>{
-    const {username,email,password,secretQuestion} = req.body;
+    const {name,username,email,password,secretKey} = req.body;
     try {
-        if(!username || !email || !password || !secretQuestion){
+        if(!username || !name || !email || !password || !secretKey){
             return  res.status(400).json({
                     success : false,
                     message : "please fill all the field"
@@ -28,10 +28,11 @@ config();
             })
         }
         const user = new admin({
+            name : name,
             username : username,
             email :email,
             password : hashedPassword,
-            secretKey : secretQuestion
+            secretKey : secretKey,
         })
         await user.save();
         if(user){

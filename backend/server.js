@@ -14,10 +14,10 @@ import { studentAttendance, studentAttendanceUbdate } from './controller/student
 import { getAllStudent, getSingleStudent } from './controller/students/getStudentController.js';
 import { isAdminMiddleware } from './middleware/adminMiddleware.js';
 import { getAllTeacher, getSingleTeacher } from './controller/teachers/getTeacherMiddleware.js';
-
+import cors from 'cors'
 const app = express();
 DB();
-
+app.use(cors())
 config()
 config()
 app.use(express.json())

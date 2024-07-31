@@ -1,4 +1,4 @@
-import React from 'react'
+
 import NavLink from './NavLink'
 import NavItem from './NavItem'
 export const Footer = () => {
@@ -17,23 +17,23 @@ export const Footer = () => {
                 </div>
                 <NavLink className="flex-col gap-3 justify-stretch">
                     <h3 className='font-bold text-base text-[#e4e4e4]'>NAVIGATION</h3>
-                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerText="About this institue"/>
-                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerText="Adminstratot"/>
-                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerText="News"/>
+                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerContent="About this institue"/>
+                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerContent="Adminstratot"/>
+                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerContent="News"/>
                 </NavLink>
             </NavLink>
             <NavLink className="min-w-[30vw]">
                 <NavLink className="flex-col gap-3 justify-stretch">
                     <h3 className='font-bold text-base text-[#e4e4e4]'>USEFUL LINKS</h3>
-                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerText="About this institue"/>
-                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerText="Adminstratot"/>
-                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerText="News"/>
+                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerContent="About this institue"/>
+                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerContent="Adminstratot"/>
+                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerContent="News"/>
                 </NavLink>
                 <NavLink className="flex-col gap-3 justify-stretch">
                     <h3 className='font-bold text-base text-[#e4e4e4]'>CONTACT US</h3>
-                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerText="About this institue"/>
-                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerText="Adminstratot"/>
-                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerText="News"/>
+                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerContent="About this institue"/>
+                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerContent="Adminstratot"/>
+                    <NavItem className="text-[#e4e4e4ab] text-[13px]" innerContent="News"/>
                 </NavLink>
             </NavLink>
        </NavLink>

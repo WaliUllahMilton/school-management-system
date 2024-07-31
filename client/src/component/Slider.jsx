@@ -1,39 +1,78 @@
-import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import PropTypes from 'prop-types';
 
-function Slides() {
+function Slides({
+  data = [],
+  dots = false,
+  infinite = true,
+  slidesToShow = 1,
+  slidesToScroll = 1,
+  autoplay = true,
+  speed = 1000,
+  autoplaySpeed = 3000,
+  cssEase = "ease-in-out",
+  pauseOnHover = false,
+  className = "",
+  overlay = false
+}) {
+  console.log(data)
   const settings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 1000,
-    autoplaySpeed: 3000,
-    cssEase: "ease-in-out",
-    pauseOnHover: false,
-    className : "outline-none"
+    dots,
+    infinite,
+    slidesToShow,
+    slidesToScroll,
+    autoplay,
+    speed,
+    autoplaySpeed,
+    cssEase,
+    pauseOnHover,
+    className: `outline-none ${className}`
   };
 
   return (
-    <div className="slider-container max-h-screen overflow-hidden">
-      <Slider {...settings}>
-        {Array(5).fill().map((_, index) => (
-          <div key={index} className="w-full h-full">
-            <div className="min-h-screen w-full opacity-10 bg-gradient-to-b from-black absolute top-0 left-0 right-0 z-10"></div>
-
+    <div className={`slider-container max-h-screen min-h-screen overflow-hidden ${className}`}>
+      {data.length > 0 ?
+        <div className="">
+          <Slider {...settings}>
+          {data.map((item, index) => (
+          <div key={index} className="relative w-full h-full">
+            {overlay && <div className="absolute inset-0 min-h-screen w-full bg-gradient-to-b from-black opacity-40 z-10"></div>}
+            
             <img
               className="h-full w-full object-cover"
-              src="https://img.freepik.com/free-vector/back-school-hand-drawn-flat-illustration_23-2149456161.jpg?w=740&t=st=1722333401~exp=1722334001~hmac=1885bdad1bae14808ed343a31422bdecf5f7a828c62ec85ac2b386207f5322fa"
+              src={item}
               alt={`Slide ${index + 1}`}
             />
           </div>
         ))}
-      </Slider>
+      </Slider> 
+        </div>
+        : (
+          <div className="flex justify-center min-h-[400px] items-center">
+            <h2>Loading...</h2>
+          </div>
+        )}
+    
     </div>
   );
 }
+
+// Define prop types for validation
+Slides.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.string),
+  dots: PropTypes.bool,
+  infinite: PropTypes.bool,
+  slidesToShow: PropTypes.number,
+  slidesToScroll: PropTypes.number,
+  autoplay: PropTypes.bool,
+  speed: PropTypes.number,
+  autoplaySpeed: PropTypes.number,
+  cssEase: PropTypes.string,
+  pauseOnHover: PropTypes.bool,
+  className: PropTypes.string,
+  overlay : PropTypes.bool
+};
 
 export default Slides;
