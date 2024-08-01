@@ -13,6 +13,7 @@ import NavLink from '../../component/NavLink'
 import { CheckBox } from '../../component/CheckBox'
 import CoverImg from '../../assets/adminLogin.png'
 import Pic from '../../component/Image'
+import { FcIdea } from "react-icons/fc"
 export const AdminLogin = () => {
   const data = useSelector((state)=>state.admin)
   const dispatch = useDispatch()
@@ -70,13 +71,16 @@ useEffect(()=>{
                <CheckBox value={formData.checkBox} name="checkBox" onChange={(e)=>handleChecked(e)}/>
               <Btn innerText="Login" className="w-full" onClick={(e)=>handleSubmit(e)}/>
               <NavLink className="text-black text-base">
-                <NavItem to="/admin/signup" innerContent="create account"/>
+                <NavItem to="/admin-signup" innerContent="create account"/>
                 <NavItem innerContent="forgot password ?"/>
               </NavLink>
           </Form>
       </FormBody>
         </div>
-        <div className='min-w-[60vw] bg-gray-100'>
+        <div className='min-w-[60vw] relative overflow-hidden max-h-screen bg-gray-100'>
+            <span className='text-[60px] absolute right-[10vw] top-[7vw] text-white   '>
+              <FcIdea className=' ' />
+            </span>
             <Pic src={CoverImg}/>
         </div>
       </NavLink>
