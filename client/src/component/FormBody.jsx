@@ -4,7 +4,7 @@ import NavLink from './NavLink';
 const FormBody = ({className,headerClassName,headerText,children,title}) => {
   return (
     <section className="flex justify-center min-h-screen  bg-white font-roboto items-center">
-        <div className={`${className} flex flex-col  gap-8 p-10`}>
+        <div className={`${className} flex flex-col  gap-4 px-10`}>
             <NavLink className="flex-col">
             <h3 className={`${headerClassName} text-center mb-4 text-xl font-bold  text-gray-800`}>{headerText}</h3>
             <p className='text-center'>{title}</p>

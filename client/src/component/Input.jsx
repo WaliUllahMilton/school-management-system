@@ -5,7 +5,7 @@ import { MdVisibility,MdVisibilityOff  } from "react-icons/md";
 const Input = ({type,className,placeholder,onChange,value,name}) => {
   const [inputAnimate,setInputAnimate] = useState(false);
   const [inputVal,setInputVal] = useState(false); 
-  const [passToggle,setPassToggle] = useState(false);
+  const [passShow,setPassShow] = useState(false);
   const [inputType,setInputType] = useState(type);
   const handleFocusIn = ()=>{
     setInputAnimate(true)
@@ -17,12 +17,12 @@ const Input = ({type,className,placeholder,onChange,value,name}) => {
 
   useEffect(()=>{
     setInputVal(value !== '');
-    if(passToggle){
+    if(passShow){
       setInputType("text")
     }else{
       setInputType(type)
     }
-  }, [value,passToggle]);
+  }, [value,passShow]);
 
   return (
     <div className='relative min-w-[30vw] font-roboto'>
@@ -37,8 +37,8 @@ const Input = ({type,className,placeholder,onChange,value,name}) => {
     />
     <label htmlFor={name} className={`absolute ${inputAnimate || inputVal  ?  "bottom-[100%] px-1 text-sm text-cyan-400 bg-white" : "bottom-[50%]" }  left-5 text-gray-400 text-base capitalize transition duration-200 transform translate-y-[50%]`}>{placeholder+" *"}</label>
     { type == "password" &&
-      <span onClick={()=>setPassToggle(!passToggle)} className='text-gray-400  text-lg font-bold absolute bottom-[50%] transform translate-y-[50%] right-5'>{
-        passToggle ? <MdVisibility/> : <MdVisibilityOff/>
+      <span onClick={()=>setPassShow(!passShow)} className='text-gray-400  text-lg font-bold absolute bottom-[50%] transform translate-y-[50%] right-5'>{
+        passShow ? <MdVisibility/> : <MdVisibilityOff/>
       }</span>
     }
     </div>

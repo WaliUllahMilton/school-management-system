@@ -1,6 +1,6 @@
 import React from 'react'
 import NavLink from '../../component/NavLink'
-import NavItem from '../../component/NavItem'
+import { Link } from 'react-router-dom'
 import Btn from '../../component/Btn'
 import  Image  from '../../component/Image'
 import imgLink from '../../assets/home.png'
@@ -20,7 +20,7 @@ export const Home = () => {
                     <NavLink className="flex-col gap-4">
                         <Btn onClick={()=>navigate("/select-roll")} innerText="login"/>
                         <Btn onClick={()=>navigate("/select-roll")}  innerText="login as guest" className="bg-teal-700 text-white hover:border-cyan-90 hover:text-teal-700 mb-10"/>
-                    <p onClick={()=>navigate("/select-roll")}  className='text-center text-base cursor-pointer'>Don't have an account? <NavItem innerContent="sign up"/></p>
+                    <p onClick={()=>navigate("/select-roll")}  className='text-center text-base cursor-pointer'>Don't have an account?<Link to=""> Sign up</Link></p>
                     </NavLink>
                 </NavLink>
             </div>

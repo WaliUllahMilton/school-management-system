@@ -12,11 +12,11 @@ config();
                     });
         }
         // console.log(typeof username);
-        const checkExistingUser = await admin.find({})
-        if(checkExistingUser && checkExistingUser.length !== 0 ){
+        const checkExistingUser = await admin.findOne({email})
+        if(checkExistingUser  ){
             return res.status(401).json({
                 success : false,
-                message : "can not be more than one admin , if you forgot password then please recover it",
+                message : "this email id allready have an account please login",
             })
         }
         const salt = Number(process.env.SALT_ROUND)

@@ -2,7 +2,7 @@ import React from 'react'
 import NavLink from '../../component/NavLink'
 import NavItem from '../../component/NavItem'
 
-export const StudentResult = () => {
+ const StudentResult = () => {
   return (
     <section className=' '>
         <div className='flex h-[calc(100vh-48px)] w-screen overflow-auto justify-center items-center '> 
@@ -66,4 +66,6 @@ export const StudentResult = () => {
     </section>
   )
 }
+
+export default StudentResult;
 

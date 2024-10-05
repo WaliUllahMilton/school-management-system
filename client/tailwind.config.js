@@ -16,7 +16,7 @@ export default {
         "background": "linear-gradient(90deg, hsla(299, 34%, 53%, 1) 7%, hsla(169, 93%, 49%, 1) 92%)",
         "hover": "linear-gradient(360deg, hsla(299, 34%, 53%, 1) 7%, hsla(169, 93%, 49%, 1) 92%)",
 
-      }
+      },
     },
   },
   plugins: [],
